@@ -52,5 +52,21 @@ module.exports = {
             })
         }) */
 
+    },
+    'genreMovies': (req, res) => {
+        db.Genre.findByPk(req.params.id,{
+            include: ['movies']
+        })
+            .then(genre => {
+                let respuesta = {
+                    meta: {
+                        status: 200,
+                        total: genre.length,
+                        url: '/api/genre/:id/movies'
+                    },
+                    data: genre
+                }
+                res.json(respuesta);
+            });
     }
 }

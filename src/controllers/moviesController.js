@@ -3,6 +3,7 @@ const db = require('../database/models');
 const sequelize = db.sequelize;
 const { Op } = require("sequelize");
 const moment = require('moment');
+const API = 'http://www.omdbapi.com/?apikey=d4e35e92';
 
 
 //Aqui tienen otra forma de llamar a cada uno de los modelos
